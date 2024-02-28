@@ -5,12 +5,19 @@ function checkAge(){
     try{
  const age = parseInt(ageText);
  if(isNaN(age)){
-    console.log('age not found', age, ageText);
+    throw "Please enter a number";
  }
+ else if (age < 18){
+   throw "You are not allowed";
+ }
+ else if(age > 30){
+    throw "You are not allow here";
+ }
+ errorTag.innerHTML = '';
     }
     catch(err){
         console.log('ERROR:', err);
-        errorTag.innerText = 'Something Wrong';
+        errorTag.innerHTML = 'ERROR:' + err;
 
     }
 
